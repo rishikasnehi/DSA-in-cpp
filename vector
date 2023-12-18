@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    vector<char> number = {'1', '1', '1', '1', '1'};
+    for (auto i = number.begin(); i != number.end(); ++i)
+    {
+        cout << *i << " ";
+    }
+    number.push_back('d');
+    for (auto num : number)
+    {
+        cout << num << " ";
+    }
+    auto i1 = number.begin();
+    auto i2 = number.cbegin();
+    *i1 = 'c';
+    // *i2 = 20;
+    cout << *i1 << " ";
+    cout << *i2 << " ";
+    vector<int> sample = {10, 20, 30, 40, 50};
+    cout << sample.size() << endl;
+    cout << sample.capacity() << endl;
+    sample.push_back(15);
+    cout << sample.size() << endl;
+    vector<int> sample1;
+    for (auto i = 1; i <= 10; i++)
+        sample1.push_back(i * 10);
+    for (auto i = sample1.begin(); i != sample1.end(); ++i)
+    {
+        cout << *i << " ";
+    }
+    cout << "\nReference operator [g] : g1[2] = " << sample1[2];
+    cout << "\nat : g1.at(4) = " << sample1.at(4);
+    cout << "\nfront() : g1.front() = " << sample1.front();
+    cout << "\nback() : g1.back() = " << sample1.back();
+    sample1.assign(5, 24);
+    sample1.pop_back();
+    sample1.insert(sample1.begin(), 5);
+    
+}
