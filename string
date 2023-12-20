@@ -1,0 +1,50 @@
+#include <iostream>
+#include <sstream>
+#include <string.h>
+using namespace std;
+int main()
+{
+    string s = "hello ";
+    cout << s << endl;
+    string s1("hello ");
+    cout << s1 << endl;
+    string s2;
+    cout << "give input : ";
+    cin >> s2;
+    cout << "the string input was " << s2 << endl;
+    string s3;
+    cout << "give input :";
+    getline(cin, s3);
+    cout << "the string input was : " << s3 << endl;
+    string s5;
+    cout << "give another input :";
+    getline(cin, s5);
+    cout << "the second string input was : " << s5 << endl;
+    string s6;
+    cout << "give one more input :";
+    getline(cin, s6);
+    cout << "the third string input was : " << s6 << endl;
+    string s4;
+    cout << "give input :";
+    stringstream obj(s4);
+    cout << "pointer application start" << endl;
+    char *ptr = &s[0];
+    while (*ptr != '\0')
+    {
+        cout << ptr;
+        ptr++;
+    }
+    string fruit[5] = {"apple", "banana", "orange", "grapes", "mango"};
+    for (int i = 0; i < 5; i++)
+    {
+        cout << fruit[i] << "\n";
+    }
+    string str1, str2;
+    cout << "give two strings" << endl;
+    cin >> str1;
+    cin >> str2;
+    cout << str1.size() << " " << str2.size() << endl;
+    cout << str1 + str2 << endl;
+    swap(str1[0], str2[0]);
+    cout << str1 << " " << str2 << endl;
+}
