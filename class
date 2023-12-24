@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+class Person
+{
+    string name;
+    int age;
+
+public:
+    Person(const string &n, int a) : name(n), age(a) {}
+
+    void showInfo()
+    {
+        cout << "Name : " << name << " Age : " << age;
+    }
+};
+
+int main()
+{
+    Person person1("Rahul", 30);
+    person1.showInfo();
+}
