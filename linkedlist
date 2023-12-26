@@ -23,8 +23,132 @@ public:
         new_node->next = head;
         head = new_node;
     }
+
+    void display()
+    {
+        Node *temp = head;
+        while (temp != nullptr)
+        {
+            cout << temp->val << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+
+    int get(int index)
+    {
+        Node *temp = head;
+        int count = 0;
+        while (temp != nullptr)
+        {
+            if (index == count)
+                return temp->val;
+            count++;
+            temp = temp->next;
+        }
+        return -1;
+    }
+
+    void addAtHead(int val)
+    {
+        Node *new_node = new Node(val);
+        new_node->next = head;
+        head = new_node;
+    }
+
+    void addAtTail(int val)
+    {
+        Node *tail = new Node(val);
+        tail->next = NULL;
+
+        if (head == nullptr)
+        {
+            head = tail;
+            return;
+        }
+        Node *temp = head;
+        while (temp->next != nullptr)
+        {
+            temp = temp->next;
+        }
+        temp->next = tail;
+    }
+
+    void addAtIndex(int index, int val)
+    {
+        Node *new_node = new Node(val);
+        int count = 0;
+        Node *temp = head;
+        while (count < index - 1)
+        {
+            temp = temp->next;
+            ++count;
+        }
+        new_node->next = temp->next;
+        temp->next = new_node;
+    }
+
+    void deleteAtIndex(int index)
+    {
+        int count = 0;
+        Node *prev = head;
+        Node *current = head;
+        if (index == 0)
+        {
+            current = current->next;
+            prev->next = nullptr;
+            delete prev;
+        }
+        else
+        {
+            while (count < index - 1)
+            {
+                prev = prev->next;
+                count++;
+            }
+            current = prev->next;
+            prev->next = current->next;
+            current->next = nullptr;
+            delete current;
+        }
+    }
 };
 
 int main()
 {
+    MyLinkedList list;
+    // list.insert(5);
+    // list.insert(10);
+    // list.insert(15);
+    list.addAtHead(7);
+    cout << "Linked List : ";
+    list.display();
+    list.addAtHead(2);
+    cout << "Linked List : ";
+    list.display();
+    list.addAtHead(1);
+    cout << "Linked List : ";
+    list.display();
+    list.addAtIndex(3, 0);
+    cout << "Linked List : ";
+    list.display();
+    list.deleteAtIndex(2);
+    cout << "Linked List : ";
+    list.display();
+    list.addAtHead(6);
+    cout << "Linked List : ";
+    list.display();
+    list.addAtTail(4);
+    cout << "Linked List : ";
+    list.display();
+    list.get(4);
+    list.addAtHead(4);
+    cout << "Linked List : ";
+    list.display();
+    list.addAtIndex(5, 0);
+    cout << "Linked List : ";
+    list.display();
+    list.addAtHead(6);
+    cout << "Linked List : ";
+    list.display();
 }
