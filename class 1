@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+class Sample
+{
+public:
+    string name;
+    int roll;
+
+    void printname();
+    void printroll()
+    {
+        cout << "Student roll is: " << roll;
+    }
+};
+
+void Sample::printname()
+{
+    cout << "Student name is: " << name;
+}
+int main()
+{
+
+    Sample obj1;
+    obj1.name = "Rishika";
+    obj1.roll = 15;
+
+    obj1.printname();
+    cout << endl;
+
+    obj1.printroll();
+    return 0;
+}
