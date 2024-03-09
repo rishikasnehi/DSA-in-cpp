@@ -1,0 +1,53 @@
+#include <iostream>
+#include <set>
+using namespace std;
+int main()
+{
+
+    set<char> s1;
+    s1.insert('G');
+    s1.insert('F');
+    cout << "charachter set : ";
+    for (auto c : s1)
+    {
+        cout << c << " ";
+    }
+
+    set<int, greater<int>> s2;
+    s2.insert(29);
+    s2.insert(19);
+    s2.insert(69);
+    s2.insert(49);
+    s2.insert(39);
+    s2.insert(59);
+    s2.insert(89);
+    s2.insert(19);
+
+    cout << "integer set : ";
+    for (auto c : s2)
+    {
+        cout << c << " ";
+    }
+    cout << "integer set : ";
+    for (auto itr = s2.begin(); itr != s2.end(); itr++)
+    {
+        cout << *itr << " ";
+    }
+    cout << endl;
+    int num = s2.erase(59);
+    cout << num << endl;
+    cout << "set after removing element 59 :  ";
+    for (auto itr = s2.begin(); itr != s2.end(); itr++)
+    {
+        cout << *itr << " ";
+    }
+    s2.erase(s2.begin(), s2.find(39));
+    cout << "set after removing elements elements less than 39 :  ";
+    for (auto itr = s2.begin(); itr != s2.end(); itr++)
+    {
+        cout << *itr << " ";
+    }
+    cout << endl;
+    cout << "s2.upperbound(20) : " << *s2.upper_bound(50) << endl;
+    cout << "s2.lowerbound(20) : " << *s2.lower_bound(50);
+}
